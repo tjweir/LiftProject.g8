@@ -1,4 +1,4 @@
-package bootstrap.liftweb
+package $package$
 
 import net.liftweb._
 import util._
@@ -37,7 +37,7 @@ class Boot {
     Schemifier.schemify(true, Schemifier.infoF _, User)
 
     // where to search snippet
-    LiftRules.addToPackages("code")
+    LiftRules.addToPackages("$package$")
 
     // Build SiteMap
     val entries = List(
