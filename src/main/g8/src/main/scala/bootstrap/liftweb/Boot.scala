@@ -10,7 +10,7 @@ import sitemap._
 import Loc._
 import mapper._
 
-import code.model._
+import $package$.model._
 
 
 /**
@@ -45,8 +45,7 @@ class Boot {
 
       // more complex because this menu allows anything in the
       // /static path to be visible
-      Menu(Loc("Static", Link(List("static"), true, "/static/index"), 
-	       "Static Content")))
+      Menu(Loc("Static", Link(List("static"), true, "/static/index"), "Static Content")))
     // the User management menu items
 
     // set the sitemap.  Note if you don't want access control for
@@ -66,10 +65,6 @@ class Boot {
 
     // What is the function to test if a user is logged in?
     LiftRules.loggedInTest = Full(() => User.loggedIn_?)
-
-
-LiftRules.dispatch.append(MyVendor.dispatchPF) 
-LiftRules.snippets.append(MyVendor.snippetPF)
 
     // Make a transaction span the whole HTTP request
     S.addAround(DB.buildLoanWrapper)
